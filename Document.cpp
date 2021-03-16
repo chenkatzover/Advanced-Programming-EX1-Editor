@@ -12,24 +12,26 @@ using namespace std;
     {
         if (!line.empty())
         {
-            if (line == ".")
-                return;
-            fileContents.emplace(fileContents.begin() + row, line);
+            if (line == "."){
+                return;}
+            //fileContents.emplace_back(fileContents.begin() + row+1, line);
+            fileContents.emplace(fileContents.begin() + row+1, line);
             row++;
         }
     }
-
+    
     }
     
     void Document ::  runI(){ //add lines before
-        for (string line; getline(cin, line);)
-        {
+        for (string line; getline(cin, line);) {
+        cout<< line<<endl;
         if (!line.empty())
         {
-            if (line == ".")
-                //row--;
+            if (line == "."){
+                row--;
                 return;
-            fileContents.emplace(fileContents.begin() + (row-1), line);
+            }
+            fileContents.emplace(fileContents.begin() + (row), line);
             row++;
         }
     }
@@ -43,7 +45,8 @@ using namespace std;
         {
             if (line == ".")
                 return;
-            fileContents.emplace(fileContents.begin() + row-1 , line);
+            fileContents.emplace(fileContents.begin() + row , line);
+            row++;
         }
     }
     }
@@ -76,8 +79,8 @@ using namespace std;
     }
     }
     void Document ::  runJ(){//merge between lines
-         fileContents.at(row) += fileContents.at(row + 1);
-         fileContents.erase(fileContents.begin() + (row + 1));
+         fileContents.at(row+1) += fileContents.at(row + 2);
+         fileContents.erase(fileContents.begin() + (row + 2));
     }
 
     void Document ::  runS(){

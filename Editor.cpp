@@ -6,11 +6,11 @@
 
 using namespace std;
 
- Editor::Editor(){}//empty constructor
+ Editor::Editor(){ doc.row = -1;}
 
 Editor::Editor(string Filename){  //constructor that gets the file name
 
- ifstream MyReadFile("Filename");
+ ifstream MyReadFile(Filename);
  if (!MyReadFile.is_open()){ cout << "Unable to open file"; }
 
 string line;
@@ -30,24 +30,33 @@ void Editor::loop() {
   cin >> c; // Get user input from the keyboard
   switch(c){
 
+case '1':
+    doc.row=0;
+    cout << doc.fileContents[doc.row]<< endl;
+    break;
+ 
  case '3':
-    doc.row=3;
+    doc.row=2;
+    cout << doc.fileContents[doc.row]<< endl;
     break;
 
   case '+':
     int num;
-    num=getchar();
-    doc.row+=num;
+    num=getchar()-'0';
+    doc.row= doc.row+num;
+    cout << doc.fileContents[doc.row]<< endl;
     break;
 
   case '-':
     int num2;
-    num2=getchar();
-    doc.row= doc.row - num2;
+    num2=getchar()-'0';
+    doc.row= doc.row - num2-1;
+    cout << doc.fileContents[doc.row]<< endl;
     break;
 
   case '$':
      doc.row=doc.fileContents.size()-1;
+     cout << doc.fileContents[doc.row]<< endl;
     break;
 
   case 'a':
@@ -60,6 +69,12 @@ void Editor::loop() {
 
   case 'c':
      doc.runC();
+     for (int i = 0; i < doc.fileContents.size(); i++)
+    {
+        cout <<"////";
+        cout << doc.fileContents[i] << endl;
+        cout <<"////";
+    } 
     break;
 
   case 'd':
