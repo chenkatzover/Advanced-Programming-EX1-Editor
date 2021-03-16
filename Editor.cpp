@@ -69,12 +69,6 @@ case '1':
 
   case 'c':
      doc.runC();
-     for (int i = 0; i < doc.fileContents.size(); i++)
-    {
-        cout <<"////";
-        cout << doc.fileContents[i] << endl;
-        cout <<"////";
-    } 
     break;
 
   case 'd':
