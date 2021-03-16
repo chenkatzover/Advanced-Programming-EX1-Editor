@@ -2,59 +2,89 @@
 #include "Document.h"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
 
 using namespace std;
 
+ Editor::Editor(){}//empty constructor
 
+Editor::Editor(string Filename){  //constructor that gets the file name
 
+ ifstream MyReadFile("Filename");
+ if (!MyReadFile.is_open()){ cout << "Unable to open file"; }
+
+string line;
+while(getline(MyReadFile, line)){
+  if(!line.empty()){
+		doc.fileContents.push_back(line);
+  }
+	}
+  MyReadFile.close();
+}
 
 void Editor::loop() {
 
-Document doc;
-  string x; 
-  cin >> x; // Get user input from the keyboard
+ bool flag=true;
+ char c;
+ while(flag){
+  cin >> c; // Get user input from the keyboard
+  switch(c){
 
-switch (x[0]) {
+ case '3':
+    doc.row=3;
+    break;
 
-  case +:
-    doc.runPluse();
+  case '+':
+    int num=getchar();
+    doc.row+=num;
     break;
-  case -:
-     doc.runMinus();
+
+  case '-':
+    int num=getchar();
+    doc.row-=num;
     break;
-  case $:
-     doc.runDollar();
+
+  case '$':
+     doc.row=doc.fileContents.size()-1;
     break;
-  case a:
+
+  case 'a':
      doc.runA();
     break;
-  case .:
+
+  case '.':
      doc.runDot();
     break;
-  case i:
+
+  case 'i':
      doc.runI();
     break;
-  case c:
+
+  case 'c':
      doc.runC();
     break;
-  case d:
+  case 'd':
      doc.runD();
     break;
-  case /:
+    
+  case '/':
      doc.runSlash();
     break;
-  case s:
+
+  case 's':
      doc.runS();
     break;
-  case j:
+  case 'j':
      doc.runJ();
     break;
-  case w:
+  case 'w':
      doc.runW();
     break;
-  case q:
-     doc.runQ();
+  case 'q':
+     flag=false;
     break;
 default:
-    doc.runNum();
+   cout<<"?"<<endl;
 }
+ }

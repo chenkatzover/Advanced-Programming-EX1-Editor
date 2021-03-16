@@ -3,7 +3,11 @@ using namespace std;
 
 class Editor {
   public:
+
+  Document doc;
   
-    void loop();
+  Editor();
+  Editor(string Filename);
+  void loop();
 
 };

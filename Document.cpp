@@ -5,21 +5,17 @@
 
 using namespace std;
 
-
-
-
-
-
-    void Document :: runPluse(){
-
+    void Document ::  runA(){//add lines after
+     for (string line; getline(std::cin, line);)
+    {
+        if (!line.empty())
+        {
+            if (line == ".")
+                return;
+            fileContents.emplace(fileContents.begin() + (row + 1), line);
+            row++;
+        }
     }
-    void Document ::  runMinus(){
-
-    }
-    void Document ::  runDollar(){
-
-    }
-    void Document ::  runA(){
 
     }
     void Document ::  runDot(){

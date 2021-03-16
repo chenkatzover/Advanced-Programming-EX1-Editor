@@ -4,6 +4,9 @@ using namespace std;
 
 class Document {
   public:
+  int row=1;
+  std::vector<std::string> fileContents;
+
     void runPluse();
     void runMinus();
     void runDollar();
@@ -21,7 +24,6 @@ class Document {
 
 
 
-std::vector<std::string> vecOfStr;
 
 
 
