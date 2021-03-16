@@ -8,16 +8,15 @@ using namespace std;
 
 
 int main(int argc, char* argv[]) {
-switch (argc) {
-case 1:
- Editor editor;
-break;
-case 2:
-// Document document=argv[1];
-break;
 
- editor.loop();
+if(argc ==1){
+    Editor editor;
+    editor.loop();
+}
+else{
+    Editor editor(argv[1]);
+    editor.loop();
 }
 
- return 0;
+
 }

@@ -1,5 +1,4 @@
 #include "Editor.h"
-#include "Document.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -36,13 +35,15 @@ void Editor::loop() {
     break;
 
   case '+':
-    int num=getchar();
+    int num;
+    num=getchar();
     doc.row+=num;
     break;
 
   case '-':
-    int num=getchar();
-    doc.row-=num;
+    int num2;
+    num2=getchar();
+    doc.row= doc.row - num2;
     break;
 
   case '$':
@@ -53,10 +54,6 @@ void Editor::loop() {
      doc.runA();
     break;
 
-  case '.':
-     doc.runDot();
-    break;
-
   case 'i':
      doc.runI();
     break;
@@ -64,6 +61,7 @@ void Editor::loop() {
   case 'c':
      doc.runC();
     break;
+
   case 'd':
      doc.runD();
     break;
@@ -88,3 +86,4 @@ default:
    cout<<"?"<<endl;
 }
  }
+}

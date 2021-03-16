@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+#include "Document.h"
+
 
 class Editor {
   public:

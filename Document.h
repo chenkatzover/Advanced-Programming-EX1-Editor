@@ -1,17 +1,15 @@
 #include <iostream>
+#include <vector>
 using namespace std;
-
+#pragma once
 
 class Document {
   public:
   int row=1;
-  std::vector<std::string> fileContents;
+  vector<string> fileContents;
 
-    void runPluse();
-    void runMinus();
-    void runDollar();
+  
     void runA();
-    void runDot();
     void runI();
     void runC();
     void runD();
@@ -19,8 +17,6 @@ class Document {
     void runJ();
     void runS();
     void runW();
-    void runQ();
-    void runNum();
 
 
 
